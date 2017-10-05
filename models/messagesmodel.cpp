@@ -645,7 +645,8 @@ void MessagesModel::onMessagesSendMessageReplied(MTProtoReply *mtreply)
     }
 
     Update* update = updates.updates().last();
-    Q_ASSERT(update->constructorId() == TLTypes::UpdateNewChannelMessage);
+    Q_ASSERT(update->constructorId() == TLTypes::UpdateNewChannelMessage
+             || update->constructorId() == TLTypes::UpdateReadHistoryInbox);
 
     message->deleteLater();
 
